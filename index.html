@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <meta name="description" content="Emmanuel Odedina - WDD 231 - Web Frontend Development Home Page | Showcasing dynamic web development skills and coursework projects. Learn more about my journey in HTML, CSS, and responsive design.">
+    <meta name="author" content="Emmanuel Odedina">
+
+    <!-- Fonts and Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <!-- Scripts -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/software-development.svg" alt="Emmanuel Odedina Site logo" width="50" height="50">
+            <span>Emmanuel Odedina</span>
+        </div>
+    <button id="ham-btn" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"></button>
+
+
+    </header>
+
+    <nav id="nav-menu" class="navigation">
+        <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="#">Chamber Project</a></li>
+            <li><a href="#">Final Project</a></li>
+
+        </ul>
+    </nav>
+
+    
+
+    <main>
+        <h1>Home</h1>
+        <div class="main-grid">
+            <section>
+                <h2>About Me</h2>
+                    <p>Hello, my name is Emmanuel Odedina, and I call the vibrant city of Lagos, Nigeria, home. In my leisure time, I find joy
+                        in the pages of a good book, the thrill of a football match, and the immersive experience of movies. Professionally, I
+                        work as a freelance UX designer, where I focus on creating user-centered and intuitive digital experiences. To
+                        complement my design skills and broaden my technical expertise, I've embarked on a journey to earn a software
+                        development degree through the flexible and enriching BYU Pathway program.</p>
+            </section>
+
+            <section>
+                <h2>Student Photo</h2>
+                    <img src="images/emmanuel-odedina.jpg" alt="Emmanuel Odedina's Photo" loading="lazy"> 
+            </section>
+        </div>
+
+            <section>
+                <h2>Web Certificate Courses</h2>
+                <div class="filters" >
+                    <button id="all"> All Courses</button>
+                    <button id="wdd"> WDD Courses</button>
+                    <button id="cse"> CSE Courses </button>
+                </div>
+                <div id="courses"></div>
+                    <p>Total credits: <span id="totalCredits">0</span></p>
+            </section>
+    </main>
+
+    <footer>
+        <div class="socials">
+            <a href="https://github.com/Emmanuel-Adewunmi?tab=repositories" target="_blank"><img src="images/github.svg" alt="github" width="16" height="16"></a>
+            <a href="https://linkedin.com/in/emmanuel-odedina" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn" width="16" height="16"></a>
+            <a href="https://x.com/OdedinaAdewunmi" target="_blank"><img src="images/twitter-x.svg" alt="Twitter-x" width="16" height="16"></a>
+        </div>
+        <p>&copy;<span id="currentyear"></span>🏰Emmanuel Odedina 🌍Lagos, Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>   
+</body>
+</html>

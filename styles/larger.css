@@ -1,0 +1,40 @@
+@media (min-width: 640px) {
+    nav.navigation {
+        display: block !important;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navigation ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
+    }
+
+    .main-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+
+    .filters {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    #courses {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    footer {
+        text-align: center;
+    }
+}
