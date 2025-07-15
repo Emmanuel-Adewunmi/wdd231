@@ -1,0 +1,28 @@
+{
+    "family_name": "Adekunle",
+    "move_in_date": "2025-06-24",
+    "number_of_people": 4,
+    "visited_by_bishopric": true,
+    "family_members": [
+        {
+            "name": "Pedro Adekunle",
+            "gender": "Male",
+            "birthdate": "1990-05-15"
+        },
+        {
+            "name": "Maria Adekunle",
+            "gender": "Female",
+            "birthdate": "1992-08-20"
+        },
+        {
+            "name": "Andrea Adekunle",
+            "gender": "Female",
+            "birthdate": "2010-03-05"
+        },
+        {
+            "name": "Luz Adekunle",
+            "gender": "Male",
+            "birthdate": "2012-11-10"
+        }
+    ]
+}
