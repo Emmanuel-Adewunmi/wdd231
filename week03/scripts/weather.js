@@ -5,7 +5,7 @@ const captionDesc = document.querySelector('figcaption');
 
 
 // Trier, Germany coordinates
-const apiKey = "1afd9cd4a13277b7f1684b22372a95e5"
+const apiKey = 
 const lat = "49.75"
 const lon = "6.64"
 
