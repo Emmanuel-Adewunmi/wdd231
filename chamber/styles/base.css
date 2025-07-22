@@ -19,27 +19,24 @@
     --text-color: #E1E1E1;
     --card-bg: #1e1e1e;
     --card-border: #606060;
-   
-    .logo,
-    #menu-toggle,
-    nav a,
-    #theme-toggle {
-        color: var(--background-color);
-    }
-
-    /* Footer text */
-    footer {
-        color: var(--background-color);
-       
-    }
-
-    /* View Toggle Buttons when active or hovered */
-    .view-toggle button.active,
-    .view-toggle button:hover {
-        background-color: var(--primary-color);
-        color: var(--background-color);
-    }
 }
+  [data-theme="dark"] .logo,
+  [data-theme="dark"] #menu-toggle,
+  [data-theme="dark"] nav a,
+  [data-theme="dark"] #theme-toggle {
+      color: var(--background-color);
+  }
+
+  [data-theme="dark"] footer {
+      /* IMPORTANT: Added to critical CSS for CLS fix */
+      color: var(--background-color);
+  }
+
+  [data-theme="dark"] .view-toggle button.active,
+  [data-theme="dark"] .view-toggle button:hover {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+  }
 
 * {
     box-sizing: border-box;
