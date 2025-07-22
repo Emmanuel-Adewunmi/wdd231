@@ -1,0 +1,84 @@
+{
+    "members": [
+        {
+            "name": "Eko Hotels & Suites",
+            "address": "1415 Adetokunbo Ademola St, Victoria Island, Lagos",
+            "phone": "+234 1 277 2700",
+            "website": "https://www.ekohotels.com",
+            "icon": "eko-hotel.webp",
+            "membership": 3
+        },
+        {
+            "name": "GTBank",
+            "address": "Plot 635 Akin Adesola St, Victoria Island, Lagos",
+            "phone": "+234 700 4826 66328",
+            "website": "https://www.gtbank.com",
+            "icon": "gtbank-logo.webp",
+            "membership": 3
+        },
+        {
+            "name": "Shoprite Nigeria",
+            "address": "Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Lagos",
+            "phone": "+234 1330 1700",
+            "website": "https://www.shoprite.com.ng",
+            "icon": "shoprite-logo.webp",
+            "membership": 2
+        },
+        {
+            "name": "Flutterwave",
+            "address": "8 Providence St, Lekki Phase 1, Lagos",
+            "phone": "+234 1 888 9595",
+            "website": "https://www.flutterwave.com",
+            "icon": "flutterwave-logo.webp",
+            "membership": 3
+        },
+        {
+            "name": "Terra Kulture",
+            "address": "1376 Tiamiyu Savage St, Victoria Island, Lagos",
+            "phone": "+234 817 920 3324",
+            "website": "https://www.terrakulture.com",
+            "icon": "terra-kulture-logo.webp",
+            "membership": 2
+        },
+        {
+            "name": "Filmhouse Cinemas",
+            "address": "The Twinwaters, Lekki Phase 1, Lagos",
+            "phone": "+234 1 342 9191",
+            "website": "https://www.filmhouseng.com",
+            "icon": "filmhouse-logo.webp",
+            "membership": 1
+        },
+        {
+            "name": "Jumia Nigeria",
+            "address": "Plot 3, Crown Hill Road, Lekki Phase 1, Lagos",
+            "phone": "+234 700 100 0800",
+            "website": "https://www.jumia.com.ng",
+            "icon": "jumia-logo.webp",
+            "membership": 3
+        },
+        {
+            "name": "Oando PLC",
+            "address": "2 Ajose Adeogun St, Victoria Island, Lagos",
+            "phone": "+234 1 270 2400",
+            "website": "https://www.oandoplc.com",
+            "icon": "oando-plc-logo.webp",
+            "membership": 3
+        },
+        {
+            "name": "Cold Stone Creamery",
+            "address": "Admiralty Way, Lekki Phase 1, Lagos",
+            "phone": "+234 1 342 9191",
+            "website": "https://www.coldstonecreamery.ng",
+            "icon": "coldstone-logo.webp",
+            "membership": 2
+        },
+        {
+            "name": "Channels Television",
+            "address": "Plot 803, Channels TV Avenue, Isheri North, Lagos",
+            "phone": "+234 1 448 3788",
+            "website": "https://www.channelstv.com",
+            "icon": "channels-tv-logo.webp",
+            "membership": 3
+        }
+    ]
+}

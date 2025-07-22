@@ -1,0 +1,78 @@
+/* ========================
+   Directory-specific styles
+   ======================== */
+
+#directory {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Member card styles */
+.member-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    min-height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-card img {
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.member-card h3 {
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.member-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.member-card a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.member-card a:hover {
+    text-decoration: underline;
+}
+
+/* List view override */
+#directory.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-x: hidden;
+}
+
+#directory.list-view .member-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--card-border);
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hide logos completely in list view regardless of screen size */
+#directory.list-view .member-card img {
+    display: none !important;
+}
