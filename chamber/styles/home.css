@@ -19,10 +19,8 @@
 .hero-text {
     position: absolute;
     top: 50%;
-    /* Default for larger screens */
     left: 50%;
     transform: translate(-50%, -50%);
-    /* Default for larger screens */
     background: rgba(0, 0, 0, 0.6);
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -31,14 +29,12 @@
     box-sizing: border-box;
 }
 
-/* .hero-title class  */
 .hero-title {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: white;
 }
 
-/* Style for the paragraph within hero-text */
 .hero-text p {
     font-size: 1.1rem;
     color: white;
@@ -73,7 +69,6 @@
     background: #005bb5;
 }
 
-/* Ensure CTA button contrast in dark mode */
 [data-theme="dark"] .cta-button {
     background: var(--primary-color);
     color: #000;
@@ -83,7 +78,6 @@
     background: #4a89f0;
     color: #000;
 }
-
 
 /* Events & Weather Section */
 .events-weather {
@@ -171,18 +165,25 @@
     color: var(--text-color);
 }
 
-/* "Visit Website" link on member cards in dark mode */
+/* Dark mode contrast fix for spotlight cards */
+[data-theme="dark"] .spotlight-card {
+    background: #2b2b2b;
+    /* Lighter background for contrast */
+    color: #ffffff;
+    /* Brighter text */
+    border: 1px solid #555;
+    /* Adds definition */
+}
+
 [data-theme="dark"] .spotlight-card a {
-    color: var(--text-color);
+    color: #66A3FF;
+    /* Brighter link color */
     text-decoration: underline;
 }
 
-[data-theme="dark"] .spotlight-card a:hover,
-[data-theme="dark"] .spotlight-card a:focus {
-    color: var(--primary-color);
-    text-decoration: none;
+[data-theme="dark"] .spotlight-card a:hover {
+    color: #99c5ff;
 }
-
 
 /* Membership Badges */
 .membership-badge {
@@ -226,7 +227,6 @@
     color: #ffffff;
 }
 
-
 /* Responsive Layout */
 @media (max-width: 767px) {
     .hero-text {
@@ -237,7 +237,6 @@
         transform: translate(-50%, -50%);
     }
 
-    /* UPDATED: Targets the new .hero-title class */
     .hero-title {
         font-size: 1.3rem;
         line-height: 1.1;
@@ -262,7 +261,6 @@
     }
 }
 
-
 @media (min-width: 768px) {
     .events-weather {
         grid-template-columns: 1fr 1fr 1fr;
@@ -276,7 +274,6 @@
         max-width: none;
     }
 
-    /* UPDATED: Targets the new .hero-title class */
     .hero-title {
         font-size: 2.5rem;
     }
