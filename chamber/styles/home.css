@@ -31,7 +31,8 @@
     box-sizing: border-box;
 }
 
-.hero-text h1 {
+/* .hero-title class  */
+.hero-title {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: white;
@@ -59,7 +60,7 @@
 
 .cta-button {
     display: inline-block;
-    background: #0073e6;
+    background: #0a5299;
     color: #fff;
     padding: 0.8rem 1.5rem;
     font-size: 1.1rem;
@@ -170,7 +171,7 @@
     color: var(--text-color);
 }
 
-/*  "Visit Website" link on member cards in dark mode */
+/* "Visit Website" link on member cards in dark mode */
 [data-theme="dark"] .spotlight-card a {
     color: var(--text-color);
     text-decoration: underline;
@@ -193,73 +194,63 @@
     margin-top: 0.5rem;
 }
 
-/* Light mode adjustments for membership badges */
-.membership-gold {
-    background: #8B6D0F;
+/* CORRECTED: New selectors for higher specificity in light mode */
+.spotlight-container .spotlight-card p.membership-gold {
+    background: #58460d;
     color: #fff;
 }
 
-.membership-silver {
-    background: #5E5E5E;
+.spotlight-container .spotlight-card p.membership-silver {
+    background: #494949;
     color: #fff;
 }
 
-.membership-bronze {
-    background: #6F3516;
+.spotlight-container .spotlight-card p.membership-bronze {
+    background: #602e12;
     color: #fff;
 }
 
-/* Dark mode adjustments for membership badges (retained from previous fix, ensuring good contrast) */
-[data-theme="dark"] .membership-gold {
-    background: #ffcc00;
-    color: #333;
+/* CORRECTED: New selectors for higher specificity in dark mode */
+[data-theme="dark"] .spotlight-container .spotlight-card p.membership-gold {
+    background: #614f00;
+    color: #ffffff;
 }
 
-[data-theme="dark"] .membership-silver {
-    background: #cccccc;
-    color: #333;
+[data-theme="dark"] .spotlight-container .spotlight-card p.membership-silver {
+    background: #424242;
+    color: #ffffff;
 }
 
-[data-theme="dark"] .membership-bronze {
-    background: #e69138;
-    color: #333;
+[data-theme="dark"] .spotlight-container .spotlight-card p.membership-bronze {
+    background: #a04d0b;
+    color: #ffffff;
 }
 
 
 /* Responsive Layout */
 @media (max-width: 767px) {
-
-    /* Adjust for smaller screens like mobile */
     .hero-text {
-        /* Further reduced font sizes and padding to prevent overlap on small screens */
         font-size: 0.9rem;
-        /* Slightly smaller base font size */
         padding: 0.3rem 0.6rem;
-        /* Reduced padding */
         max-width: 90%;
         top: max(70px, 20%);
-        /* Adjusted top position to sit higher on the screen */
         transform: translate(-50%, -50%);
     }
 
-    .hero-text h1 {
+    /* UPDATED: Targets the new .hero-title class */
+    .hero-title {
         font-size: 1.3rem;
-        /* Further reduced H1 for 320px width */
         line-height: 1.1;
-        /* Tighter line height */
         margin-bottom: 0.2rem;
     }
 
     .hero-text p {
         font-size: 0.75rem;
-        /* Further reduced paragraph font size */
         line-height: 1.2;
-        /* Tighter line height */
         margin-top: 0.3rem;
     }
 
     .cta {
-        /* Position CTA at the bottom-right for mobile */
         right: 1rem;
         bottom: 1rem;
         transform: none;
@@ -267,21 +258,16 @@
 
     .cta-button {
         font-size: 0.9rem;
-        /* Reduced font size for the button on mobile */
         padding: 0.6rem 1.2rem;
-        /* Reduced button padding */
     }
 }
 
 
 @media (min-width: 768px) {
-
-    /* For screens 768px and wider (desktop and larger tablets) */
     .events-weather {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    /* Restore hero-text styles for larger screens */
     .hero-text {
         top: 50%;
         transform: translate(-50%, -50%);
@@ -290,12 +276,12 @@
         max-width: none;
     }
 
-    .hero-text h1 {
+    /* UPDATED: Targets the new .hero-title class */
+    .hero-title {
         font-size: 2.5rem;
     }
 
     .hero-text p {
         font-size: 1.1rem;
     }
-
 }

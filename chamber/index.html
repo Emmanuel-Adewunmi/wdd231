@@ -8,16 +8,14 @@
         content="Lagos Chamber of Commerce - Empowering local businesses through networking, events, and business support.">
     <meta name="author" content="Emmanuel Odedina">
 
-    <!-- Open Graph Meta -->
     <meta property="og:title" content="Lagos Chamber of Commerce">
     <meta property="og:description" content="Join the thriving network of Lagos businesses.">
-    <meta property="og:image" content="https://emmanuel-adewunmi.github.io/wdd231/chamber/images/og-image-home.webp">
+    <meta property="og:image" content="https://emmanuel-adewunmi.github.io/wdd231/chamber/images/og-image.webp">
     <meta property="og:url" content="https://emmanuel-adewunmi.github.io/wdd231/chamber/index.html">
 
     <title>Lagos Chamber of Commerce | Home</title>
 
-    <!-- Favicon, Fonts, Styles -->
-    <link rel="icon" href="/images/favicon.ico">
+    <link rel="icon" href="chamber/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,7 +24,7 @@
 
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="styles/larger.css">
     <link rel="stylesheet" href="styles/home.css">
 
     <script src="scripts/main.js" defer></script>
@@ -39,7 +37,7 @@
             <a href="index.html" class="logo">Lagos Chamber</a>
 
             <div class="nav-actions">
-                <button id="menu-toggle" aria-label="Toggle Navigation">&#9776;</button>
+                <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
                 <nav id="nav">
                     <a href="index.html" class="active">Home</a>
                     <a href="directory.html">Directory</a>
@@ -54,11 +52,10 @@
     </header>
 
     <main>
-        <!-- Hero Section + Call to Action -->
         <section class="hero">
             <img src="images/hero.webp" alt="Central Business District, Lagos" loading="lazy">
             <div class="hero-text">
-                <h1>Welcome to the Lagos Chamber of Commerce</h1>
+                <h1 class="hero-title">Welcome to the Lagos Chamber of Commerce</h1>
                 <p>Connecting businesses, building communities.</p>
             </div>
             <section class="cta">
@@ -67,34 +64,37 @@
             </section>
         </section>
 
-        
-       
-        <!-- Events + Weather Section -->
         <section class="events-weather">
             <h2>Events & Weather</h2>
             <section class="events">
-                <h3>Current Events</h3>
+                <h3>Upcoming Events</h3>
                 <ul>
-                    <li><strong>Business Expo 2025</strong> – @ Landmark Event Centre</li>
-                    <li><strong>SME Networking Night</strong> –  @ Terra Kulture</li>
+                    <li><strong>Business Expo 2025</strong> – August 5, 2025 @ Landmark Event Centre</li>
+                    <li><strong>SME Networking Night</strong> – August 12, 2025 @ Terra Kulture</li>
                 </ul>
+            </section>
+
+            <section class="weather" id="weather">
+                <h3>Current Weather in Lagos</h3>
+                <div class="weather-icon-container">
+                    <img id="weather-icon" src="images/weather-icon.svg" alt="weather icon" height="50" width="50"> 
+                    <p id="current-description"></p>
+                </div>
+                <p id="current-temp"></p>
+                <p id="high-low-temp"></p>
+                <p id="humidity"></p>
+                <p id="sunrise"></p>
+                <p id="sunset"></p>
+            </section>
+
+            <section class="forecast-section">
+                <h3>3-Day Forecast</h3>
+                <div id="forecast"></div>
+            </section>
+
         </section>
-    
-        <section class="weather" id="weather">
-            <h3>Current Weather in Lagos</h3>
-            <p id="current-temp"></p>
-            <p id="current-description"></p>
-        </section>
-
-        <section class="forecast-section">
-            <h3>Weather Forecast</h3>
-            <div id="forecast"></div>
-        </section>
-
-    </section>
 
 
-        <!-- Spotlight Section -->
         <section class="spotlights">
             <h2>Member Spotlights</h2>
             <div class="spotlight-container" id="spotlights"></div>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="footer-right">
-                <p>&copy; <span id="year"></span> Lagos Chamber of Commerce<br>
+                <p>© <span id="year"></span> Lagos Chamber of Commerce<br>
                     WDD 231 | Emmanuel Odedina<br>
                     Last Modified: <span id="lastModified"></span></p>
             </div>
