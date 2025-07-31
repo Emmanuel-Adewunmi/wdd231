@@ -1,0 +1,141 @@
+/* Siteplan styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #F8F9FA;
+    color: #333;
+    padding: 1rem;
+}
+
+/* Header */
+header {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid #00BFA6;
+    /* Teal accent for modern feel */
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #CCCCCC;
+}
+
+/* Sections */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1C1C1C;
+    border-left: 4px solid #00BFA6;
+    padding-left: 0.5rem;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #1C1C1C;
+}
+
+p,
+ul {
+    margin-bottom: 1rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+.color-samples {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.color-sample {
+    padding: 1rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.color-sample.primary {
+    background-color: #1C1C1C;
+    /* Charcoal */
+}
+
+.color-sample.accent {
+    background-color: #00BFA6;
+    color: #1C1C1C;
+    /* Teal */
+}
+
+/* Wireframes */
+section img {
+    max-width: 100%;
+    margin-top: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Footer */
+footer {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-top: 4px solid #00BFA6;
+}
+
+footer .socials {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+footer .socials a img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+footer .socials a img:hover {
+    transform: scale(1.1);
+    filter: brightness(0.8) invert(0.9);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    color: #CCCCCC;
+}
