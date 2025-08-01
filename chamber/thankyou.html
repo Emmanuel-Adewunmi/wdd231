@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining the Lagos Chamber of Commerce">
+    <meta name="author" content="Emmanuel Odedina">
+    <title>Thank You | Lagos Chamber of Commerce</title>
+
+    <link rel="icon" href="https://emmanuel-adewunmi.github.io/wdd231/chamber/images/favicon.ico">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="stylesheet" href="styles/thankyou.css">
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Lagos Chamber</a>
+            <div class="nav-actions">
+                <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+                <nav id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="directory.html">Directory</a>
+                    <a href="join.html">Join</a>
+                    <a href="discover.html">Discover</a>
+                </nav>
+                <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <span class="icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="thankyou-container">
+        <section class="thankyou-message">
+            <h1>Thank You for Joining!</h1>
+            <p>We’re excited to welcome you to the Lagos Chamber of Commerce.</p>
+        </section>
+
+        <section class="submission-details">
+            <h2>Your Submitted Information</h2>
+            <div class="details-card">
+                <p><strong>First Name:</strong> <span id="display-firstName"></span></p>
+                <p><strong>Last Name:</strong> <span id="display-lastName"></span></p>
+                <p><strong>Email:</strong> <span id="display-email"></span></p>
+                <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+                <p><strong>Organization:</strong> <span id="display-organization"></span></p>
+                <p><strong>Submitted On:</strong> <span id="display-timestamp"></span></p>
+            </div>
+        </section>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>Contact: eodedina@byupathway.edu<br>+234 000 000 0000</p>
+            </div>
+
+            <div class="footer-center">
+                <a href="https://www.youtube.com/@BYUPathwayWorldwideOfficial" target="_blank">
+                    <img src="images/youtube.svg" alt="YouTube" width="32" height="32">
+                </a>
+                <a href="https://www.linkedin.com/school/byupathway/" target="_blank">
+                    <img src="images/linkedin.svg" alt="LinkedIn" width="32" height="32">
+                </a>
+                <a href="https://x.com/BYUPathwayWorld" target="_blank">
+                    <img src="images/twitter-x.svg" alt="Twitter-x" width="32" height="32">
+                </a>
+            </div>
+
+            <div class="footer-right">
+                <p>© <span id="year"></span> Lagos Chamber of Commerce<br>
+                    WDD 231 | Emmanuel Odedina<br>
+                    Last Modified: <span id="lastModified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

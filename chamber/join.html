@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://emmanuel-adewunmi.github.io/wdd231/chamber/images/og-image.webp">
     <meta property="og:url" content="https://emmanuel-adewunmi.github.io/wdd231/chamber/index.html">
     
-    <title>Lagos Chamber of Commerce | Home</title>
+    <title>Lagos Chamber of Commerce | Join</title>
     
     <link rel="icon" href="https://emmanuel-adewunmi.github.io/wdd231/chamber/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,10 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/larger.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/join.css">
     
     <script src="scripts/main.js" defer></script>
-    <script src="scripts/home.js" defer></script>
+    <script src="scripts/join.js" defer></script>
 </head>
 <body>
 
@@ -38,9 +38,9 @@
             <div class="nav-actions">
                 <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
                 <nav id="nav">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="directory.html">Directory</a>
-                    <a href="join.html">Join</a>
+                    <a href="join.html" class="active">Join</a>
                     <a href="discover.html">Discover</a>
                 </nav>
                 <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">
@@ -50,9 +50,141 @@
         </div>
     </header>
     
-    <main>
-
+    <main class="join-container">
+        <section class="join-form-section">
+            <h1>Join the Lagos Chamber of Commerce</h1>
+            <p>Fill out the form below to become a member.</p>
+            <form id="join-form" method="get" action="thankyou.html">
+    
+                <label>
+                    First Name:
+                    <input type="text" name="firstName" title="First Name" autocomplete="given-name" required>
+                </label>
+    
+                <label>
+                    Last Name:
+                    <input type="text" name="lastName" title="Last Name" autocomplete="family-name" required>
+                </label>
+    
+                <label>
+                    Organizational Title:
+                    <input type="text" name="orgTitle" title="Organizational Title" autocomplete="organization-title"
+                        pattern="[A-Za-z-\s]{7,}" placeholder="e.g., Business Manager">
+                </label>
+    
+                <label>
+                    Email Address:
+                    <input type="email" name="email" title="Email Address" autocomplete="email"
+                        placeholder="name@example.com" required>
+                </label>
+    
+                <label>
+                    Mobile Phone:
+                    <input type="tel" name="phone" title="Mobile Phone" autocomplete="tel" required>
+                </label>
+    
+                <label>
+                    Business/Organization Name:
+                    <input type="text" name="organization" title="Organization Name" autocomplete="organization" required>
+                </label>
+    
+                <label>
+                    Membership Level:
+                    <select name="membership" title="Select Membership Level" required>
+                        <option value="">-- Select --</option>
+                        <option value="NP">NP Membership (Free for Nonprofits)</option>
+                        <option value="Bronze">Bronze Membership</option>
+                        <option value="Silver">Silver Membership</option>
+                        <option value="Gold">Gold Membership</option>
+                    </select>
+                </label>
+    
+                <label>
+                    Business Description:
+                    <textarea name="description" title="Business Description" rows="4"
+                        placeholder="Tell us about your organization"></textarea>
+                </label>
+    
+                <input type="hidden" id="timestamp" name="timestamp">
+    
+                <input type="submit" value="Submit Application">
+            </form>
+        </section>
+    
+        <!-- Membership Cards -->
+        <aside class="membership-cards">
+            <div class="card" data-modal="np-modal">
+                <h3>NP Membership</h3>
+                <p>No cost for nonprofits.</p>
+                <button type="button">View Benefits</button>
+            </div>
+            <div class="card" data-modal="bronze-modal">
+                <h3>Bronze Membership</h3>
+                <p>Affordable entry-level benefits.</p>
+                <button type="button">View Benefits</button>
+            </div>
+            <div class="card" data-modal="silver-modal">
+                <h3>Silver Membership</h3>
+                <p>Enhanced benefits & visibility.</p>
+                <button type="button">View Benefits</button>
+            </div>
+            <div class="card" data-modal="gold-modal">
+                <h3>Gold Membership</h3>
+                <p>Premium perks & top exposure.</p>
+                <button type="button">View Benefits</button>
+            </div>
+        </aside>
+    
+        <!-- Modals -->
+        <div id="np-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>NP Membership Benefits</h2>
+                <ul>
+                    <li>Free networking events</li>
+                    <li>Community collaboration opportunities</li>
+                    <li>Nonprofit spotlight on our homepage</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Bronze Membership Benefits</h2>
+                <ul>
+                    <li>All NP benefits</li>
+                    <li>Event discounts</li>
+                    <li>Social media mentions</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div id="silver-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Silver Membership Benefits</h2>
+                <ul>
+                    <li>All Bronze benefits</li>
+                    <li>Free training workshops</li>
+                    <li>Monthly newsletter feature</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div id="gold-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Gold Membership Benefits</h2>
+                <ul>
+                    <li>All Silver benefits</li>
+                    <li>Priority event sponsorship</li>
+                    <li>Featured homepage banner</li>
+                </ul>
+            </div>
+        </div>
     </main>
+
 
     <footer>
         <div class="footer-container">
