@@ -1,0 +1,139 @@
+/* --- Main Grid Layout --- */
+.discover-container {
+    padding: var(--spacing-md);
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+/* --- Mobile Layout (320px - 640px) --- */
+#gallery {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-areas:
+        "title"
+        "card-grid";
+}
+
+#gallery h1 {
+    grid-area: title;
+}
+
+#gallery #card-grid {
+    grid-area: card-grid;
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+}
+
+#sidebar-message {
+    grid-area: sidebar;
+}
+
+/* --- Medium Screen Layout (641px - 1024px) --- */
+@media (min-width: 641px) {
+    .discover-container {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "gallery sidebar";
+    }
+
+    #gallery {
+        grid-area: gallery;
+        grid-template-areas:
+            "title"
+            "card-grid";
+    }
+
+    #sidebar-message {
+        grid-area: sidebar;
+        padding-left: var(--spacing-md);
+    }
+
+    #gallery #card-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Large Screen Layout (1025px+) --- */
+@media (min-width: 1025px) {
+    .discover-container {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "gallery sidebar";
+    }
+
+    #gallery #card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* --- Card Styling --- */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: var(--card-font-size);
+}
+
+.card address {
+    font-style: normal;
+    font-size: 0.9rem;
+    margin: var(--spacing-sm) 0;
+    color: var(--text-color);
+}
+
+/* --- CTA Button Styling --- */
+.card .learn-more-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: auto;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card .learn-more-button:hover {
+    background-color: #0056b3;
+    /* Slightly darker */
+    transform: scale(1.05);
+}
+
+/* --- Image Hover Effect (Medium & Large screens only) --- */
+@media (min-width: 641px) {
+    .card img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Eko Pearl Towers",
+        "address": "Eko Atlantic City, Lagos",
+        "description": "Luxury residential apartments in the heart of Lagos.",
+        "website": "https://ekopearltowers.com",
+        "image": "images/eko-pearl-towers.webp"
+    },
+    {
+        "name": "Lagos Business School",
+        "address": "Lekki-Epe Expressway, Ajah, Lagos",
+        "description": "A leading business school offering MBA and executive programs.",
+        "website": "https://www.lbs.edu.ng",
+        "image": "images/lagos-business-school.webp"
+    },
+    {
+        "name": "Shoprite Nigeria",
+        "address": "Various locations in Lagos",
+        "description": "Nigeria's leading retail store chain.",
+        "website": "https://www.shoprite.ng",
+        "image": "images/shoprite-icm.webp"
+    },
+    {
+        "name": "Four Points by Sheraton Lagos",
+        "address": "Plot 9/10 Block 2, Oniru Chieftaincy Estate, Lagos",
+        "description": "Modern hotel offering premium hospitality services.",
+        "website": "https://www.marriott.com",
+        "image": "images/four-points-by-sheraton.webp"
+    },
+    {
+        "name": "Computer Village Ikeja",
+        "address": "Ikeja, Lagos",
+        "description": "Nigeria's largest ICT market for gadgets and repairs.",
+        "website": "https://en.wikipedia.org/wiki/Computer_Village,_Ikeja",
+        "image": "images/computer-village.webp"
+    },
+    {
+        "name": "Dangote Group",
+        "address": "Marina, Lagos",
+        "description": "A diversified conglomerate with interests in commodities.",
+        "website": "https://www.dangote.com",
+        "image": "images/dangote-industries.webp"
+    },
+    {
+        "name": "Lekki Free Zone",
+        "address": "Lekki Peninsula, Lagos",
+        "description": "An economic hub designed for trade and manufacturing.",
+        "website": "https://www.lfzdc.org",
+        "image": "images/lekki-free-trade-zone.webp"
+    },
+    {
+        "name": "Nigerian Exchange Group",
+        "address": "Lagos Island, Lagos",
+        "description": "The leading exchange platform for securities trading in Nigeria.",
+        "website": "https://ngxgroup.com",
+        "image": "images/nse-building.webp"
+    }
+]
