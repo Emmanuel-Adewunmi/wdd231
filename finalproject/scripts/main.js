@@ -2,17 +2,12 @@
 import { getExpenses, saveExpenses, getTheme, saveTheme } from './storage.js';
 import { fetchFinancialData } from './api.js';
 
-
-/* --- Helper to safely query elements --- */
 const $ = (id) => document.getElementById(id);
 
-
-/* --- Preload sample data if needed --- */
 async function preloadSampleDataIfNeeded() {
     try {
         const current = getExpenses();
         if (!current || current.length < 15) {
-            // try to fetch local sample data (optional)
             const resp = await fetch('data/sample-expenses.json');
             if (!resp.ok) throw new Error(`Failed to load sample data (${resp.status})`);
             const data = await resp.json();
@@ -27,8 +22,6 @@ async function preloadSampleDataIfNeeded() {
     }
 }
 
-
-/* --- Theme toggle --- */
 function initThemeToggle() {
     const themeToggleBtn = $('theme-toggle');
     try {
@@ -48,8 +41,6 @@ function initThemeToggle() {
     }
 }
 
-
-/* --- Mobile nav --- */
 function initMobileNav() {
     const mobileMenuBtn = $('menu-toggle');
     const navList = $('nav');
@@ -60,8 +51,6 @@ function initMobileNav() {
     });
 }
 
-
-/* --- Modal handling --- */
 function showExpenseModal(expense) {
     const modalBackdrop = $('modal-backdrop');
     const modalDetails = $('modal-details');
@@ -82,15 +71,11 @@ function hideExpenseModal() {
     modalBackdrop.setAttribute('aria-hidden', 'true');
 }
 
-
-/* --- Escape text --- */
 function escapeText(s) {
     if (s == null) return '';
     return String(s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 }
 
-
-/* --- Render recent expenses --- */
 function renderRecentExpenses() {
     const expensesListEl = $('expenses-list');
     if (!expensesListEl) return;
@@ -119,8 +104,6 @@ function renderRecentExpenses() {
     });
 }
 
-
-/* --- Category totals --- */
 function computeCategoryTotals() {
     const expenses = getExpenses() || [];
     return expenses.reduce((acc, e) => {
@@ -129,7 +112,6 @@ function computeCategoryTotals() {
         return acc;
     }, {});
 }
-
 
 function renderCategoryTotals() {
     const categoryTotalsEl = $('category-totals');
@@ -154,8 +136,6 @@ function renderCategoryTotals() {
     }
 }
 
-
-/* --- Budget handling (use localStorage directly here) --- */
 function getBudget() {
     try {
         const v = localStorage.getItem('rb_budget');
@@ -166,8 +146,6 @@ function saveBudget(val) {
     try { localStorage.setItem('rb_budget', String(val)); } catch (e) { console.error('Save budget failed', e); }
 }
 
-
-/* consolidated updateBudgetUI (single implementation) */
 function updateBudgetUI() {
     try {
         const budgetBar = $('budget-bar');
@@ -183,14 +161,16 @@ function updateBudgetUI() {
         const percent = Math.min(100, Math.round((totalExpenses / budget) * 100));
         if (budgetBar) { budgetBar.style.width = `${percent}%`; budgetBar.parentElement && budgetBar.parentElement.setAttribute('aria-valuenow', String(percent)); }
         if (budgetText) budgetText.textContent = `You have spent $${totalExpenses.toFixed(2)} of $${budget.toFixed(2)} (${percent}%)`;
-        if (budgetBar) budgetBar.style.background = percent >= 80 ? getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#a30000' : 'var(--color-teal)';
+        if (budgetBar) {
+            budgetBar.style.background = percent >= 80
+                ? getComputedStyle(document.documentElement).getPropertyValue('--color-danger-light').trim()
+                : getComputedStyle(document.documentElement).getPropertyValue('--color-teal-dark').trim();
+        }
     } catch (e) {
         console.error('updateBudgetUI error', e);
     }
 }
 
-
-/* --- Charts (canvas-based, defensive checks) --- */
 function renderPieChart() {
     const pieCanvas = $('spending-pie');
     if (!pieCanvas) return;
@@ -199,7 +179,8 @@ function renderPieChart() {
     const ctx = pieCanvas.getContext('2d');
     if (!entries.length) {
         ctx.clearRect(0, 0, pieCanvas.width, pieCanvas.height);
-        ctx.fillStyle = '#666'; ctx.font = '16px sans-serif';
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-muted').trim();
+        ctx.font = '16px sans-serif';
         ctx.fillText('No data', pieCanvas.width / 2 - 20, pieCanvas.height / 2);
         return;
     }
@@ -216,16 +197,15 @@ function renderPieChart() {
         ctx.fillStyle = colors[i % colors.length]; ctx.fill();
         start += slice;
     });
-    // legend
     let lx = 10, ly = pieCanvas.height - 18;
     ctx.font = '12px sans-serif';
     entries.forEach(([cat, amt], i) => {
         ctx.fillStyle = colors[i % colors.length]; ctx.fillRect(lx, ly - 10, 12, 12);
-        ctx.fillStyle = '#222'; ctx.fillText(`${cat} (${Math.round((amt / total) * 100)}%)`, lx + 18, ly);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+        ctx.fillText(`${cat} (${Math.round((amt / total) * 100)}%)`, lx + 18, ly);
         ly -= 18;
     });
 }
-
 
 function renderLineChart() {
     const lineCanvas = $('spending-line');
@@ -234,7 +214,9 @@ function renderLineChart() {
     const ctx = lineCanvas.getContext('2d');
     if (!expenses.length) {
         ctx.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
-        ctx.fillStyle = '#666'; ctx.font = '14px sans-serif'; ctx.fillText('No data', 20, 30);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-muted').trim();
+        ctx.font = '14px sans-serif';
+        ctx.fillText('No data', 20, 30);
         return;
     }
     const byDate = {};
@@ -245,18 +227,17 @@ function renderLineChart() {
     ctx.clearRect(0, 0, w, h);
     const maxVal = Math.max(...values) || 1;
     const xStep = (w - padding * 2) / Math.max(1, dates.length - 1);
-    ctx.strokeStyle = '#ddd'; ctx.beginPath(); ctx.moveTo(padding, h - padding); ctx.lineTo(w - padding, h - padding); ctx.stroke();
-    ctx.strokeStyle = 'var(--color-teal)'; ctx.lineWidth = 2; ctx.beginPath();
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-teal-dark').trim();
+    ctx.lineWidth = 2; ctx.beginPath();
     values.forEach((v, i) => { const x = padding + i * xStep; const y = h - padding - (v / maxVal) * (h - padding * 2); if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
     ctx.stroke();
-    ctx.fillStyle = '#00786b';
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-teal-dark').trim();
     values.forEach((v, i) => { const x = padding + i * xStep; const y = h - padding - (v / maxVal) * (h - padding * 2); ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill(); });
-    ctx.fillStyle = '#333'; ctx.font = '10px sans-serif';
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+    ctx.font = '10px sans-serif';
     dates.forEach((d, i) => { const x = padding + i * xStep; ctx.fillText(d.replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$2/$3'), x - 12, h - 8); });
 }
 
-
-/* --- Balance rendering --- */
 function renderBalance() {
     const el = $('current-balance');
     if (!el) return;
@@ -266,12 +247,12 @@ function renderBalance() {
     const totalIncome = incomes.reduce((s, i) => s + Number(i.amount || 0), 0);
     const balance = (totalIncome - totalExpenses) || 0;
     el.textContent = `$${balance.toFixed(2)}`;
-    el.style.color = balance < 0 ? getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#ff6b6b' : 'var(--color-teal)';
+    el.style.color = balance < 0
+        ? getComputedStyle(document.documentElement).getPropertyValue('--color-danger-light').trim()
+        : getComputedStyle(document.documentElement).getPropertyValue('--color-teal-dark').trim();
     updateBudgetUI();
 }
 
-
-/* --- Income handling --- */
 function initIncomeForm() {
     const incomeForm = $('income-form');
     if (!incomeForm) return;
@@ -291,13 +272,10 @@ function initIncomeForm() {
     });
 }
 
-
-/* --- Expense form handling --- */
 function initExpenseForm() {
     const expenseForm = $('expense-form');
     if (!expenseForm) return;
     expenseForm.addEventListener('submit', (e) => {
-        // we allow the GET navigation to occur; also save to localStorage
         const amount = parseFloat($('expense-amount').value) || 0;
         const category = $('expense-category').value || 'Other';
         const date = $('expense-date').value || (new Date()).toISOString().slice(0, 10);
@@ -306,7 +284,6 @@ function initExpenseForm() {
             const arr = getExpenses() || [];
             arr.push({ amount, category, date, description });
             saveExpenses(arr);
-            // local UI updates
             renderRecentExpenses();
             renderCategoryTotals();
             renderPieChart();
@@ -315,12 +292,9 @@ function initExpenseForm() {
         } catch (err) {
             console.error('Add expense failed', err);
         }
-        // let browser continue to form-submission.html (method=get)
     });
 }
 
-
-/* --- Clear button --- */
 function initClearButton() {
     const clearBtn = $('clear-expenses');
     if (!clearBtn) return;
@@ -335,8 +309,6 @@ function initClearButton() {
     });
 }
 
-
-/* --- Modal close handlers --- */
 function initModalHandlers() {
     const modalCloseBtn = document.querySelector('.modal-close');
     const modalBackdrop = $('modal-backdrop');
@@ -344,8 +316,6 @@ function initModalHandlers() {
     if (modalBackdrop) modalBackdrop.addEventListener('click', (e) => { if (e.target === modalBackdrop) hideExpenseModal(); });
 }
 
-
-/* --- Fetch external API data --- */
 async function initApiFetch() {
     try {
         if (typeof fetchFinancialData === 'function') {
@@ -361,8 +331,6 @@ async function initApiFetch() {
     }
 }
 
-
-/* --- Save budget button --- */
 function initBudgetSave() {
     const saveBudgetBtn = $('save-budget');
     const budgetInput = $('budget-input');
@@ -378,8 +346,6 @@ function initBudgetSave() {
     });
 }
 
-
-/* --- Initialize on DOMContentLoaded --- */
 document.addEventListener('DOMContentLoaded', async () => {
     await preloadSampleDataIfNeeded();
     initThemeToggle();
@@ -390,9 +356,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initModalHandlers();
     initBudgetSave();
 
-    
-
-    // Render & fetch
     renderRecentExpenses();
     renderCategoryTotals();
     renderPieChart();
@@ -400,7 +363,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderBalance();
     await initApiFetch();
 });
-
-
-
-

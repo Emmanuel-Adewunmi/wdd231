@@ -1,6 +1,5 @@
 /* styles/main.css */
 
-
 /* ===== ROOT VARIABLES ===== */
 :root {
     --color-charcoal: #1C1C1C;
@@ -16,18 +15,15 @@
     --color-danger-dark: #a30000;
     /* deep red for light mode */
 
-
     --bg-color: var(--color-white);
     --text-color: var(--color-charcoal);
     --card-bg: var(--color-white);
     --header-bg: var(--color-charcoal);
     --footer-bg: var(--color-charcoal);
 
-
     /* Added a stronger red for dark mode contrast */
     --color-danger-light-contrast: #ff6666;
 }
-
 
 /* Explicitly scope light mode variables and overrides */
 body:not(.dark-mode) {
@@ -41,14 +37,12 @@ body:not(.dark-mode) {
     --color-danger-light: var(--color-danger-dark);
 }
 
-
 /* Explicit light mode color for current balance */
 body:not(.dark-mode) .large-number#current-balance {
     color: var(--color-danger-dark);
     text-shadow: none;
     /* remove any dark mode text shadow */
 }
-
 
 /* Dark mode overrides (must come AFTER light mode to take precedence) */
 body.dark-mode {
@@ -63,19 +57,16 @@ body.dark-mode {
     --color-danger-light: var(--color-danger-light-contrast);
 }
 
-
 /* Dark mode current balance color */
 body.dark-mode .large-number#current-balance {
     color: var(--color-danger-light);
     text-shadow: 0 0 3px rgba(255, 102, 102, 0.6);
 }
 
-
 /* ===== GLOBAL RESET ===== */
 * {
     box-sizing: border-box;
 }
-
 
 body {
     margin: 0;
@@ -86,7 +77,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
 h1,
 h2,
 h3,
@@ -95,17 +85,14 @@ h4 {
     margin-top: 0;
 }
 
-
 a {
     text-decoration: none;
 }
-
 
 a:hover,
 a:focus {
     text-decoration: underline;
 }
-
 
 /* Adaptive link colors for WCAG compliance */
 a.logo,
@@ -114,17 +101,14 @@ footer a {
     /* bright aqua for dark backgrounds */
 }
 
-
 body:not(.dark-mode) main a {
     color: var(--color-teal-dark);
     /* dark teal on light backgrounds */
 }
 
-
 body.dark-mode main a {
     color: var(--color-teal-bright);
 }
-
 
 /* ===== HEADER ===== */
 header {
@@ -133,18 +117,15 @@ header {
     padding: 0.75rem 1rem;
 }
 
-
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
 .logo img {
     height: 40px;
 }
-
 
 /* nav */
 .nav-actions {
@@ -152,7 +133,6 @@ header {
     align-items: center;
     gap: 0.5rem;
 }
-
 
 /* menu toggle (hidden on larger screens) */
 #menu-toggle {
@@ -164,7 +144,6 @@ header {
     cursor: pointer;
 }
 
-
 /* default nav (large screens) */
 #nav {
     display: flex;
@@ -172,13 +151,11 @@ header {
     align-items: center;
 }
 
-
 #nav a {
     color: var(--color-white);
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
 }
-
 
 #nav a.active,
 #nav a:hover {
@@ -186,13 +163,11 @@ header {
     color: var(--color-white);
 }
 
-
 /* Mobile nav */
 @media (max-width: 768px) {
     #menu-toggle {
         display: inline-block;
     }
-
 
     #nav {
         display: none;
@@ -207,17 +182,14 @@ header {
         z-index: 1000;
     }
 
-
     #nav.active {
         display: flex;
     }
-
 
     #nav a {
         margin: 0.25rem 0;
     }
 }
-
 
 /* ===== DASHBOARD GRID ===== */
 .dashboard-grid {
@@ -227,20 +199,17 @@ header {
     padding: 1rem;
 }
 
-
 @media (min-width: 768px) {
     .dashboard-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
 @media (min-width: 1024px) {
     .dashboard-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 
 /* ===== CARDS ===== */
 .card {
@@ -252,18 +221,15 @@ header {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-
 .card:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-
 .card h2 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
-
 
 /* Current balance - mode-specific deep/bright red */
 .large-number {
@@ -271,18 +237,15 @@ header {
     font-weight: bold;
 }
 
-
 /* ===== FORMS ===== */
 form {
     display: flex;
     flex-direction: column;
 }
 
-
 form label {
     margin-top: 0.5rem;
 }
-
 
 form input,
 form select,
@@ -295,7 +258,6 @@ form button {
     font-family: inherit;
 }
 
-
 form button {
     background-color: #00796b;
     color: var(--color-white);
@@ -304,11 +266,9 @@ form button {
     cursor: pointer;
 }
 
-
 form button:hover {
     background-color: #00695c;
 }
-
 
 /* ===== LISTS ===== */
 .expenses-list {
@@ -317,18 +277,15 @@ form button:hover {
     margin: 0;
 }
 
-
 .expense-item {
     border-bottom: 1px solid var(--color-border);
     padding: 0.5rem 0;
 }
 
-
 .expense-line {
     display: flex;
     justify-content: space-between;
 }
-
 
 .expense-meta {
     display: flex;
@@ -336,7 +293,6 @@ form button:hover {
     font-size: 0.85rem;
     color: var(--color-muted);
 }
-
 
 /* View Details button - dark teal for both modes */
 .view-details {
@@ -348,45 +304,37 @@ form button:hover {
     border-radius: 4px;
 }
 
-
 .view-details:hover {
     background: #00332e;
 }
-
 
 body.dark-mode .view-details {
     background: var(--color-teal-dark);
     color: var(--color-white);
 }
 
-
 body.dark-mode .view-details:hover {
     background: #00332e;
 }
-
 
 /* ===== INSIGHTS ===== */
 .category-row {
     padding: 0.25rem 0;
 }
 
-
 .muted {
     color: var(--color-muted);
 }
-
 
 /* ===== BUDGET BAR ===== */
 .budget-block {
     margin-top: 1rem;
 }
 
-
 .budget-row {
     display: flex;
     gap: 0.5rem;
 }
-
 
 .budget-progress {
     height: 12px;
@@ -396,23 +344,19 @@ body.dark-mode .view-details:hover {
     overflow: hidden;
 }
 
-
 .budget-bar {
     height: 100%;
     background: var(--color-teal-dark);
     width: 0%;
 }
 
-
 .budget-bar.over-budget {
     background: var(--color-danger-dark);
 }
 
-
 body.dark-mode .budget-bar.over-budget {
     background: var(--color-danger-light);
 }
-
 
 /* ===== MODAL ===== */
 .modal-backdrop {
@@ -425,11 +369,9 @@ body.dark-mode .budget-bar.over-budget {
     z-index: 999;
 }
 
-
 .modal-backdrop.active {
     display: flex;
 }
-
 
 .modal-content {
     background: var(--card-bg);
@@ -442,7 +384,6 @@ body.dark-mode .budget-bar.over-budget {
     position: relative;
 }
 
-
 .modal-close {
     position: absolute;
     top: 8px;
@@ -454,7 +395,6 @@ body.dark-mode .budget-bar.over-budget {
     color: var(--text-color);
 }
 
-
 /* ===== FOOTER ===== */
 footer {
     background-color: var(--footer-bg);
@@ -464,11 +404,9 @@ footer {
     font-size: 0.85rem;
 }
 
-
 footer .socials a img {
     height: 20px;
 }
-
 
 footer .muted {
     display: block;
@@ -476,8 +414,39 @@ footer .muted {
     color: var(--color-muted);
 }
 
-
 /* ===== CHARTS ===== */
 canvas {
     max-width: 100%;
+}
+
+/* === NEW STYLES FOR UNUSED CLASSES === */
+.icon {
+    font-size: 1.5rem;
+    /* Make the icon more prominent */
+    vertical-align: middle;
+}
+
+.expense-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.insight-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.api-data {
+    font-style: italic;
+    color: var(--color-muted);
 }
