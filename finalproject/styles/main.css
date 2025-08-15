@@ -32,7 +32,6 @@ body:not(.dark-mode) {
     --card-bg: var(--color-white);
     --header-bg: var(--color-charcoal);
     --footer-bg: var(--color-charcoal);
-    --color-border: var(--color-border);
     --color-muted: var(--color-muted);
     --color-danger-light: var(--color-danger-dark);
 }
