@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Coffee",
+        "amount": 3.5,
+        "category": "Food",
+        "date": "2025-07-01",
+        "description": "Morning coffee"
+    },
+    {
+        "name": "Uber",
+        "amount": 12.75,
+        "category": "Transportation",
+        "date": "2025-07-02",
+        "description": "Ride to work"
+    },
+    {
+        "name": "Groceries",
+        "amount": 45.2,
+        "category": "Food",
+        "date": "2025-07-03",
+        "description": "Weekly groceries"
+    },
+    {
+        "name": "Gym",
+        "amount": 29.99,
+        "category": "Other",
+        "date": "2025-07-04",
+        "description": "Monthly membership"
+    },
+    {
+        "name": "Movie",
+        "amount": 11.0,
+        "category": "Entertainment",
+        "date": "2025-07-05",
+        "description": "Cinema ticket"
+    },
+    {
+        "name": "Electricity",
+        "amount": 60.45,
+        "category": "Utilities",
+        "date": "2025-07-06",
+        "description": "Monthly bill"
+    },
+    {
+        "name": "Lunch",
+        "amount": 9.75,
+        "category": "Food",
+        "date": "2025-07-07",
+        "description": "Work lunch"
+    },
+    {
+        "name": "Bus",
+        "amount": 2.5,
+        "category": "Transportation",
+        "date": "2025-07-08",
+        "description": "Bus fare"
+    },
+    {
+        "name": "Streaming",
+        "amount": 7.99,
+        "category": "Entertainment",
+        "date": "2025-07-09",
+        "description": "Streaming subscription"
+    },
+    {
+        "name": "Stationery",
+        "amount": 5.0,
+        "category": "Other",
+        "date": "2025-07-10",
+        "description": "Office supplies"
+    },
+    {
+        "name": "Dinner",
+        "amount": 22.0,
+        "category": "Food",
+        "date": "2025-07-11",
+        "description": "Dinner out"
+    },
+    {
+        "name": "Water",
+        "amount": 15.0,
+        "category": "Utilities",
+        "date": "2025-07-12",
+        "description": "Water bill"
+    },
+    {
+        "name": "Taxi",
+        "amount": 18.0,
+        "category": "Transportation",
+        "date": "2025-07-13",
+        "description": "Taxi home"
+    },
+    {
+        "name": "Concert",
+        "amount": 55.0,
+        "category": "Entertainment",
+        "date": "2025-07-14",
+        "description": "Live music"
+    },
+    {
+        "name": "Gift",
+        "amount": 20.0,
+        "category": "Other",
+        "date": "2025-07-15",
+        "description": "Birthday present"
+    }
+]

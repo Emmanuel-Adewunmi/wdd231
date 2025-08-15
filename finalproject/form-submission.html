@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="RazerBud — Form submission page showing the expense form data via URL search params.">
+    <meta name="author" content="Emmanuel Odedina">
+    <meta property="og:title" content="RazerBud - Expense Submission">
+    <meta property="og:description" content="View the submitted expense details from the RazerBud form.">
+    <meta property="og:image"
+        content="https://emmanuel-adewunmi.github.io/wdd231/finalproject/images/og-image-form-submission.webp">
+    <meta property="og:url" content="https://emmanuel-adewunmi.github.io/wdd231/finalproject/form-submission.html">
+
+    <title>RazerBud — Expense Submission</title>
+
+
+    <link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">RazerBud</a>
+
+
+            <div class="nav-actions">
+                <button id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+                <nav id="nav" aria-label="Main navigation">
+                    <a href="index.html">Dashboard</a>
+                    <a href="history.html">History</a>
+                    <a href="attributions.html">Attributions</a>
+                </nav>
+
+
+                <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <span class="icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="card" id="submission-main" aria-labelledby="submission-heading">
+        <h1 id="submission-heading">Expense Submission</h1>
+
+
+        <p class="muted">This page displays the values submitted from the expense form using URL search parameters
+            (method="get").</p>
+
+
+        <section aria-labelledby="summary-heading">
+            <h2 id="summary-heading">Submitted Values</h2>
+
+
+            <div id="no-params" class="muted" hidden>No form data was found in the URL.</div>
+
+
+            <dl id="params-list" class="card" aria-live="polite"></dl>
+
+
+            <h3>Raw Query String</h3>
+            <pre id="raw-query" class="muted" style="white-space:pre-wrap; word-break:break-word;"></pre>
+
+
+            <div style="margin-top:1rem;">
+                <a href="index.html" class="button">Return to Dashboard</a>
+                <a href="history.html" class="button" style="margin-left:0.5rem;">View History</a>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="socials">
+            <a href="https://github.com/Emmanuel-Adewunmi" target="_blank" rel="noopener">
+                <img src="images/github.svg" alt="GitHub" width="20" height="20" loading="lazy">
+            </a>
+            <a href="https://linkedin.com/in/emmanuel-odedina" target="_blank" rel="noopener">
+                <img src="images/linkedin.svg" alt="LinkedIn" width="20" height="20" loading="lazy">
+            </a>
+            <a href="https://x.com/OdedinaAdewunmi" target="_blank" rel="noopener">
+                <img src="images/twitter-x.svg" alt="Twitter-x" width="20" height="20" loading="lazy">
+            </a>
+        </div>
+
+
+        <p>&copy;<span id="currentyear"></span> RazerBud — Emmanuel Odedina</p>
+        <p><a href="attributions.html">Attributions</a> | <a href="https://youtu.be/REPLACE_WITH_VIDEO"
+                target="_blank">Project Video</a></p>
+        <p id="lastModified" class="muted"></p>
+    </footer>
+
+
+    <!-- Separate JS file -->
+    <script type="module" src="scripts/form-submission.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A complete history of all expenses tracked in the RazerBud dashboard.">
+    <meta name="author" content="Emmanuel Odedina">
+
+
+    <meta property="og:title" content="RazerBud - History">
+    <meta property="og:description" content="View your complete expense history in RazerBud.">
+    <meta property="og:image"
+        content="https://emmanuel-adewunmi.github.io/wdd231/finalproject/images/og-image-history.webp">
+    <meta property="og:url" content="https://emmanuel-adewunmi.github.io/wdd231/finalproject/history.html">
+    <title>RazerBud - History</title>
+
+
+    <link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">RazerBud</a>
+            <div class="nav-actions">
+                <button id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">☰</button>
+                <nav id="nav" aria-label="Main navigation">
+                    <a href="index.html">Dashboard</a>
+                    <a href="history.html" class="active">History</a>
+                    <a href="attributions.html">Attributions</a>
+                </nav>
+                <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <span class="icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="history-page">
+        <h1>Expense History</h1>
+        <section class="card">
+            <h2>All Expenses</h2>
+            <ul id="expenses-history-list"></ul>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="socials">
+            <a href="https://github.com/Emmanuel-Adewunmi?tab=repositories" target="_blank" rel="noopener"><img
+                    src="images/github.svg" alt="GitHub" width="16" height="16"></a>
+            <a href="https://linkedin.com/in/emmanuel-odedina" target="_blank" rel="noopener"><img
+                    src="images/linkedin.svg" alt="LinkedIn" width="16" height="16"></a>
+            <a href="https://x.com/OdedinaAdewunmi" target="_blank" rel="noopener"><img src="images/twitter-x.svg"
+                    alt="Twitter-x" width="16" height="16"></a>
+        </div>
+        <p>&copy;<span id="currentyear"></span> RazerBud - Emmanuel Odedina</p>
+        <p id="lastModified"></p>
+        <p><a href="attributions.html">Attributions</a> | <a href="https://youtu.be/REPLACE_WITH_VIDEO"
+                target="_blank">Project Video</a></p>
+    </footer>
+
+
+    <script type="module" src="scripts/history.js"></script>
+</body>
+
+
+</html>

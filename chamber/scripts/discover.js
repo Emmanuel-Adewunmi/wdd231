@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchBusinesses() {
         try {
-            const response = await fetch('data/discover.json');
+            const response = await fetch('./data/discover.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

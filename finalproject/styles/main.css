@@ -1,0 +1,483 @@
+/* styles/main.css */
+
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+    --color-charcoal: #1C1C1C;
+    --color-teal-dark: #004d40;
+    /* dark teal for light backgrounds */
+    --color-teal-bright: #00e5d1;
+    /* bright aqua for dark backgrounds */
+    --color-white: #FFFFFF;
+    --color-muted: #515151;
+    --color-border: #e0e0e0;
+    --color-danger-light: #ff4d4d;
+    /* bright red for dark mode */
+    --color-danger-dark: #a30000;
+    /* deep red for light mode */
+
+
+    --bg-color: var(--color-white);
+    --text-color: var(--color-charcoal);
+    --card-bg: var(--color-white);
+    --header-bg: var(--color-charcoal);
+    --footer-bg: var(--color-charcoal);
+
+
+    /* Added a stronger red for dark mode contrast */
+    --color-danger-light-contrast: #ff6666;
+}
+
+
+/* Explicitly scope light mode variables and overrides */
+body:not(.dark-mode) {
+    --bg-color: var(--color-white);
+    --text-color: var(--color-charcoal);
+    --card-bg: var(--color-white);
+    --header-bg: var(--color-charcoal);
+    --footer-bg: var(--color-charcoal);
+    --color-border: var(--color-border);
+    --color-muted: var(--color-muted);
+    --color-danger-light: var(--color-danger-dark);
+}
+
+
+/* Explicit light mode color for current balance */
+body:not(.dark-mode) .large-number#current-balance {
+    color: var(--color-danger-dark);
+    text-shadow: none;
+    /* remove any dark mode text shadow */
+}
+
+
+/* Dark mode overrides (must come AFTER light mode to take precedence) */
+body.dark-mode {
+    --bg-color: var(--color-charcoal);
+    --text-color: var(--color-white);
+    --card-bg: #2a2a2a;
+    --header-bg: var(--color-charcoal);
+    --footer-bg: var(--color-charcoal);
+    --color-border: #444;
+    --color-muted: #b0b0b0;
+    /* lighter muted for contrast */
+    --color-danger-light: var(--color-danger-light-contrast);
+}
+
+
+/* Dark mode current balance color */
+body.dark-mode .large-number#current-balance {
+    color: var(--color-danger-light);
+    text-shadow: 0 0 3px rgba(255, 102, 102, 0.6);
+}
+
+
+/* ===== GLOBAL RESET ===== */
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+
+/* Adaptive link colors for WCAG compliance */
+a.logo,
+footer a {
+    color: var(--color-teal-bright);
+    /* bright aqua for dark backgrounds */
+}
+
+
+body:not(.dark-mode) main a {
+    color: var(--color-teal-dark);
+    /* dark teal on light backgrounds */
+}
+
+
+body.dark-mode main a {
+    color: var(--color-teal-bright);
+}
+
+
+/* ===== HEADER ===== */
+header {
+    background-color: var(--header-bg);
+    color: var(--color-white);
+    padding: 0.75rem 1rem;
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo img {
+    height: 40px;
+}
+
+
+/* nav */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* menu toggle (hidden on larger screens) */
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+
+/* default nav (large screens) */
+#nav {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+#nav a {
+    color: var(--color-white);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+
+#nav a.active,
+#nav a:hover {
+    background-color: var(--color-teal-dark);
+    color: var(--color-white);
+}
+
+
+/* Mobile nav */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: inline-block;
+    }
+
+
+    #nav {
+        display: none;
+        flex-direction: column;
+        background-color: var(--header-bg);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        border: 1px solid var(--color-border);
+        padding: 0.5rem;
+        width: 220px;
+        z-index: 1000;
+    }
+
+
+    #nav.active {
+        display: flex;
+    }
+
+
+    #nav a {
+        margin: 0.25rem 0;
+    }
+}
+
+
+/* ===== DASHBOARD GRID ===== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+@media (min-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ===== CARDS ===== */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Current balance - mode-specific deep/bright red */
+.large-number {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+/* ===== FORMS ===== */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+form label {
+    margin-top: 0.5rem;
+}
+
+
+form input,
+form select,
+form textarea,
+form button {
+    padding: 0.4rem;
+    margin-top: 0.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+
+form button {
+    background-color: #00796b;
+    color: var(--color-white);
+    border: none;
+    margin-top: 0.75rem;
+    cursor: pointer;
+}
+
+
+form button:hover {
+    background-color: #00695c;
+}
+
+
+/* ===== LISTS ===== */
+.expenses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.expense-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0;
+}
+
+
+.expense-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.expense-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+
+/* View Details button - dark teal for both modes */
+.view-details {
+    background: var(--color-teal-dark);
+    border: none;
+    color: var(--color-white);
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.view-details:hover {
+    background: #00332e;
+}
+
+
+body.dark-mode .view-details {
+    background: var(--color-teal-dark);
+    color: var(--color-white);
+}
+
+
+body.dark-mode .view-details:hover {
+    background: #00332e;
+}
+
+
+/* ===== INSIGHTS ===== */
+.category-row {
+    padding: 0.25rem 0;
+}
+
+
+.muted {
+    color: var(--color-muted);
+}
+
+
+/* ===== BUDGET BAR ===== */
+.budget-block {
+    margin-top: 1rem;
+}
+
+
+.budget-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+.budget-progress {
+    height: 12px;
+    background: #ddd;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+
+.budget-bar {
+    height: 100%;
+    background: var(--color-teal-dark);
+    width: 0%;
+}
+
+
+.budget-bar.over-budget {
+    background: var(--color-danger-dark);
+}
+
+
+body.dark-mode .budget-bar.over-budget {
+    background: var(--color-danger-light);
+}
+
+
+/* ===== MODAL ===== */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+
+.modal-backdrop.active {
+    display: flex;
+}
+
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--color-white);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+
+footer .socials a img {
+    height: 20px;
+}
+
+
+footer .muted {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--color-muted);
+}
+
+
+/* ===== CHARTS ===== */
+canvas {
+    max-width: 100%;
+}
